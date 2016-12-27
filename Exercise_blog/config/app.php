@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Dhaka',
 
     /*
     |--------------------------------------------------------------------------
@@ -177,6 +177,21 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+
+        /*
+         * Extra Added
+         */
+        Barryvdh\Debugbar\ServiceProvider::class,
+        Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+        narutimateum\Toastr\ToastrServiceProvider::class,
+        Stolz\Assets\Laravel\ServiceProvider::class,
+        Anakadote\ImageManager\ImageManagerServiceProvider::class,
+        Cviebrock\ImageValidator\ImageValidatorServiceProvider::class,
+        Felixkiss\UniqueWithValidator\UniqueWithValidatorServiceProvider::class,
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        Kendu\Mpdf\ServiceProvider::class,
 
     ],
 
@@ -225,6 +240,19 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        /*
+                * Extra added
+                */
+        'Activation' => Cartalyst\Sentinel\Laravel\Facades\Activation::class,
+        'Reminder' => Cartalyst\Sentinel\Laravel\Facades\Reminder::class,
+        'Sentinel' => Cartalyst\Sentinel\Laravel\Facades\Sentinel::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+        'Toastr' => narutimateum\Toastr\Facades\Toastr::class,
+        'SentinelAuth' => App\Http\Libraries\SentinelAuthCheck::class,
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+        'PDF' => Kendu\Mpdf\Facades\Pdf::class,
 
     ],
 

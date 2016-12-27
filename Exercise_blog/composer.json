@@ -6,21 +6,34 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "laravel/framework": "5.3.*"
+        "laravel/framework": "5.3.*",
+        "cartalyst/sentinel": "2.0.*",
+        "laravelcollective/html": "5.3.*",
+        "riesenia/kendo": "^1.4",
+        "narutimateum/toastr-5.2-laravel": "dev-master",
+        "stolz/assets": "^0.1.8",
+        "anakadote/laravel-5-image-manager": "dev-master",
+        "mjanssen/laravel-5-breadcrumbs": "dev-master",
+        "cviebrock/image-validator": "^2.0",
+        "felixkiss/uniquewith-validator": "2.*",
+        "simplesoftwareio/simple-qrcode": "~1",
+        "kendu/l5-mpdf": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~5.0",
         "symfony/css-selector": "3.1.*",
-        "symfony/dom-crawler": "3.1.*"
+        "symfony/dom-crawler": "3.1.*",
+        "barryvdh/laravel-debugbar": "^2.1"
     },
     "autoload": {
         "classmap": [
             "database"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "mjanssen\\BreadcrumbsBundle\\": "vendor/mjanssen/laravel-5-breadcrumbs/src"
         }
     },
     "autoload-dev": {

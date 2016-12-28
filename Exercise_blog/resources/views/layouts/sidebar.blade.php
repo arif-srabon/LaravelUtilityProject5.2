@@ -12,21 +12,38 @@
                 <ul class="navigation navigation-main navigation-accordion">
 
                     <!-- Main -->
-                    <li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i></li>
+                    @if ( 'bn' === Session::get("locale") )
+
+                        <li>
+                            <a id="sidebar-language-switcher-en">
+                                <img id="sidebar-toggle-icon" alt="English Flag"
+                                     src="{{ asset('assets/images/flags/gb.png') }}" class="position-left"> <span
+                                        class="collapse-label">Switch to English</span>
+                            </a>
+                        </li>
+
+                    @endif
+
+                    @if ( 'en' === Session::get("locale") )
+
+                        <li>
+                            <a id="sidebar-language-switcher-bn">
+                                <img id="sidebar-toggle-icon" alt="Bangladesh Flag"
+                                     src="{{ asset('assets/images/flags/bd.png') }}" class="position-left"> <span
+                                        class="collapse-label">বাংলায় দেখুন</span>
+                            </a>
+                        </li>
+
+                    @endif
+
                     <li class="active"><a href="index.html"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
                     <li>
-                        <a href="#"><i class="icon-stack2"></i> <span>Page layouts</span></a>
+                        <a href="#"><i class="glyphicon glyphicon-cog"></i> <span>Security</span></a>
                         <ul>
-                            <li><a href="layout_navbar_fixed.html">Fixed navbar</a></li>
-                            <li><a href="layout_navbar_sidebar_fixed.html">Fixed navbar &amp; sidebar</a></li>
-                            <li><a href="layout_sidebar_fixed_native.html">Fixed sidebar native scroll</a></li>
-                            <li><a href="layout_navbar_hideable.html">Hideable navbar</a></li>
-                            <li><a href="layout_navbar_hideable_sidebar.html">Hideable &amp; fixed sidebar</a></li>
-                            <li><a href="layout_footer_fixed.html">Fixed footer</a></li>
-                            <li class="navigation-divider"></li>
-                            <li><a href="boxed_default.html">Boxed with default sidebar</a></li>
-                            <li><a href="boxed_mini.html">Boxed with mini sidebar</a></li>
-                            <li><a href="boxed_full.html">Boxed full width</a></li>
+                            <li>
+                                <a href="{{url('usercreate')}}">user</a></li>
+                            <li>
+                                <a href="{{url('rolePermission')}}">Role & Permission</a></li>
                         </ul>
                     </li>
                     <li>

@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\User;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use App\Model\User\AccessLogModel;
+use App\Model\Setup\DepartmentModel;
 use App\Http\Controllers\Controller;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 use App\Http\Requests;
-use session;
+use Illuminate\Support\Facades\Session;
 
 
 class LoginController extends Controller
@@ -37,8 +37,8 @@ class LoginController extends Controller
                 Session::set("sess_user_image", $auth->user_photo);
                 Session::set("sess_office_id", $auth->office_id);
 
-//                $user_center = IdsccenterModel::find($auth->idsc_center_id);
-//                Session::set("sess_user_center_name", $user_center->center_name);
+                $user_center = DepartmentModel::find($auth->department_id);
+                Session::set("sess_user_department_name", $user_center->code);
                 // save access log
                 $accessLog->saveAccesslog();
                 return redirect('/dashboard');
@@ -63,7 +63,18 @@ class LoginController extends Controller
         }
     }
 
-    public function logout(){
-        dd("ddsf");
+    public function logout(AccessLogModel $accessLog)
+    {
+        // save access log
+        $accessLog->updateAccesslog();
+
+        Sentinel::logout(null, true);
+        Session::flush();
+        Session::regenerate();
+        return redirect('/')
+            ->header('Last-Modified', gmdate("D, d M Y H:i:s") . " GMT")
+            ->header('Cache-Control', "no-store, no-cache, must-revalidate")
+            ->header('Cache-Control: post-check=0, pre-check=0', false)
+            ->header('Pragma', "no-cache");
     }
 }

@@ -27,9 +27,38 @@ CREATE TABLE `access_log` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `access_log` */
+
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (1,1,1,'127.0.0.1','2016-12-28 11:42:40',NULL,'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 11:42:40',NULL);
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (2,1,1,'127.0.0.1','2016-12-28 11:43:55',NULL,'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 11:43:55',NULL);
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (3,1,1,'127.0.0.1','2016-12-28 11:45:34','2016-12-28 12:26:48','Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 11:45:34','2016-12-28 12:26:48');
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (4,1,1,'127.0.0.1','2016-12-28 12:27:16',NULL,'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 12:27:16',NULL);
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (5,1,1,'127.0.0.1','2016-12-28 12:31:39',NULL,'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 12:31:39',NULL);
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (6,1,1,'127.0.0.1','2016-12-28 12:32:19',NULL,'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 12:32:19',NULL);
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (7,1,1,'127.0.0.1','2016-12-28 12:34:26',NULL,'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 12:34:26',NULL);
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (8,1,1,'127.0.0.1','2016-12-28 12:36:17',NULL,'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 12:36:17',NULL);
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (9,1,1,'127.0.0.1','2016-12-28 12:38:02',NULL,'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 12:38:02',NULL);
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (10,1,1,'127.0.0.1','2016-12-28 12:38:37',NULL,'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 12:38:37',NULL);
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (11,1,1,'127.0.0.1','2016-12-28 12:38:56',NULL,'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 12:38:56',NULL);
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (12,1,1,'127.0.0.1','2016-12-28 12:40:04',NULL,'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 12:40:04',NULL);
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (13,1,1,'127.0.0.1','2016-12-28 12:41:22',NULL,'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 12:41:22',NULL);
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (14,1,1,'127.0.0.1','2016-12-28 12:42:31',NULL,'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 12:42:31',NULL);
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (15,1,1,'127.0.0.1','2016-12-28 12:43:36',NULL,'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 12:43:36',NULL);
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (16,1,1,'127.0.0.1','2016-12-28 12:44:30',NULL,'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 12:44:30',NULL);
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (17,1,1,'127.0.0.1','2016-12-28 12:45:38',NULL,'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 12:45:38',NULL);
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (18,1,1,'127.0.0.1','2016-12-28 12:45:57','2016-12-28 12:48:51','Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 12:45:57','2016-12-28 12:48:51');
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (19,1,1,'127.0.0.1','2016-12-28 12:49:06','2016-12-28 12:49:28','Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 12:49:06','2016-12-28 12:49:28');
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (20,1,1,'127.0.0.1','2016-12-28 12:53:18','2016-12-28 13:04:40','Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 12:53:18','2016-12-28 13:04:40');
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (21,1,1,'127.0.0.1','2016-12-28 13:05:15','2016-12-28 13:24:40','Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 13:05:15','2016-12-28 13:24:40');
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (22,1,1,'127.0.0.1','2016-12-28 13:24:50','2016-12-28 13:26:35','Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 13:24:50','2016-12-28 13:26:35');
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (23,1,1,'127.0.0.1','2016-12-28 13:26:45','2016-12-28 13:54:32','Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 13:26:45','2016-12-28 13:54:32');
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (24,1,1,'127.0.0.1','2016-12-28 13:54:40','2016-12-28 15:36:37','Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 13:54:40','2016-12-28 15:36:37');
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (25,1,1,'127.0.0.1','2016-12-28 15:36:46','2016-12-28 15:59:46','Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 15:36:46','2016-12-28 15:59:46');
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (26,1,1,'127.0.0.1','2016-12-28 16:01:01','2016-12-28 16:03:27','Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 16:01:01','2016-12-28 16:03:27');
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (27,1,1,'127.0.0.1','2016-12-28 16:03:37',NULL,'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 16:03:37',NULL);
+insert  into `access_log`(`id`,`department_id`,`user_id`,`login_ip`,`login_datetime`,`logout_datetime`,`browser_info`,`created_at`,`updated_at`) values (28,1,1,'127.0.0.1','2016-12-28 18:16:02',NULL,'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0','2016-12-28 18:16:02',NULL);
 
 /*Table structure for table `activations` */
 
@@ -85,14 +114,14 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `migrations` */
 
-insert  into `migrations`(`id`,`migration`,`batch`) values (1,'2014_10_12_000000_create_users_table',1);
 insert  into `migrations`(`id`,`migration`,`batch`) values (2,'2014_10_12_100000_create_password_resets_table',1);
 insert  into `migrations`(`id`,`migration`,`batch`) values (4,'2016_12_27_172345_create_access_log_table',2);
 insert  into `migrations`(`id`,`migration`,`batch`) values (5,'2016_12_27_173420_create_cc_department_table',3);
+insert  into `migrations`(`id`,`migration`,`batch`) values (7,'2014_10_12_000000_create_users_table',4);
 
 /*Table structure for table `password_resets` */
 
@@ -120,15 +149,11 @@ CREATE TABLE `persistences` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `persistences_code_unique` (`code`)
-) ENGINE=InnoDB AUTO_INCREMENT=1421 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1457 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `persistences` */
 
 insert  into `persistences`(`id`,`user_id`,`code`,`created_at`,`updated_at`) values (674,30,'tTkzA9KV2MIfSOvFdAiMXct2rRCJghIr','2016-05-31 15:45:16','2016-05-31 15:45:16');
-insert  into `persistences`(`id`,`user_id`,`code`,`created_at`,`updated_at`) values (721,1,'ZQDUz6g5S5Q6RJr3V0AriyQoySzatZ8d','2016-06-02 12:35:19','2016-06-02 12:35:19');
-insert  into `persistences`(`id`,`user_id`,`code`,`created_at`,`updated_at`) values (722,1,'htutpmeXZRJzcb0QOD1IjrBv6ChxBd5H','2016-06-02 12:56:54','2016-06-02 12:56:54');
-insert  into `persistences`(`id`,`user_id`,`code`,`created_at`,`updated_at`) values (725,1,'JcJ9p9NDBWpqhtWog6dIl6CYqTk7lvZr','2016-06-02 13:16:26','2016-06-02 13:16:26');
-insert  into `persistences`(`id`,`user_id`,`code`,`created_at`,`updated_at`) values (726,1,'pDan0gMypOeZ9fZODhmtjv1JfKjICS22','2016-06-02 13:19:34','2016-06-02 13:19:34');
 insert  into `persistences`(`id`,`user_id`,`code`,`created_at`,`updated_at`) values (811,30,'2NZLZtGATTJb6RBcPDoHpzC3W4lsARRK','2016-06-12 13:29:54','2016-06-12 13:29:54');
 insert  into `persistences`(`id`,`user_id`,`code`,`created_at`,`updated_at`) values (854,17,'5uQdWby3NUQq2ZjBQTk1bMfCY2zNvsSQ','2016-06-18 10:41:25','2016-06-18 10:41:25');
 insert  into `persistences`(`id`,`user_id`,`code`,`created_at`,`updated_at`) values (869,31,'32yBY27mLoKApqUDrkge6fUm99krtvEk','2016-06-18 10:50:03','2016-06-18 10:50:03');
@@ -192,7 +217,8 @@ insert  into `persistences`(`id`,`user_id`,`code`,`created_at`,`updated_at`) val
 insert  into `persistences`(`id`,`user_id`,`code`,`created_at`,`updated_at`) values (1417,3,'ZFlakpHA6HU5gyjv6FLT1lu5DeEjBaP4','2016-06-22 10:21:57','2016-06-22 10:21:57');
 insert  into `persistences`(`id`,`user_id`,`code`,`created_at`,`updated_at`) values (1418,3,'E8bfLsOzC2Bob8OZHki76lcnFh2C5Xan','2016-06-22 11:32:01','2016-06-22 11:32:01');
 insert  into `persistences`(`id`,`user_id`,`code`,`created_at`,`updated_at`) values (1419,3,'WZXvnP2DqPxjdL1WhuOVZ7TapaSnDYaQ','2016-06-22 13:28:34','2016-06-22 13:28:34');
-insert  into `persistences`(`id`,`user_id`,`code`,`created_at`,`updated_at`) values (1420,1,'8VhS6mux1yAxyDjlraNj03QrMUefhp47','2016-12-27 18:50:45','2016-12-27 18:50:45');
+insert  into `persistences`(`id`,`user_id`,`code`,`created_at`,`updated_at`) values (1455,1,'k8SIxj7weA8ahlU1ahegqsXEJVAtCTKW','2016-12-28 16:03:37','2016-12-28 16:03:37');
+insert  into `persistences`(`id`,`user_id`,`code`,`created_at`,`updated_at`) values (1456,1,'U4yxR4mgpZbG3pInNK303bcg5sYRnzDJ','2016-12-28 18:16:02','2016-12-28 18:16:02');
 
 /*Table structure for table `throttle` */
 
@@ -207,9 +233,21 @@ CREATE TABLE `throttle` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `throttle_user_id_index` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `throttle` */
+
+insert  into `throttle`(`id`,`user_id`,`type`,`ip`,`created_at`,`updated_at`) values (1,NULL,'global',NULL,'2016-12-28 10:58:06','2016-12-28 10:58:06');
+insert  into `throttle`(`id`,`user_id`,`type`,`ip`,`created_at`,`updated_at`) values (2,NULL,'ip','127.0.0.1','2016-12-28 10:58:06','2016-12-28 10:58:06');
+insert  into `throttle`(`id`,`user_id`,`type`,`ip`,`created_at`,`updated_at`) values (3,NULL,'global',NULL,'2016-12-28 11:40:32','2016-12-28 11:40:32');
+insert  into `throttle`(`id`,`user_id`,`type`,`ip`,`created_at`,`updated_at`) values (4,NULL,'ip','127.0.0.1','2016-12-28 11:40:32','2016-12-28 11:40:32');
+insert  into `throttle`(`id`,`user_id`,`type`,`ip`,`created_at`,`updated_at`) values (5,NULL,'global',NULL,'2016-12-28 12:27:01','2016-12-28 12:27:01');
+insert  into `throttle`(`id`,`user_id`,`type`,`ip`,`created_at`,`updated_at`) values (6,NULL,'ip','127.0.0.1','2016-12-28 12:27:01','2016-12-28 12:27:01');
+insert  into `throttle`(`id`,`user_id`,`type`,`ip`,`created_at`,`updated_at`) values (7,NULL,'global',NULL,'2016-12-28 12:43:24','2016-12-28 12:43:24');
+insert  into `throttle`(`id`,`user_id`,`type`,`ip`,`created_at`,`updated_at`) values (8,NULL,'ip','127.0.0.1','2016-12-28 12:43:24','2016-12-28 12:43:24');
+insert  into `throttle`(`id`,`user_id`,`type`,`ip`,`created_at`,`updated_at`) values (9,1,'user',NULL,'2016-12-28 12:43:24','2016-12-28 12:43:24');
+insert  into `throttle`(`id`,`user_id`,`type`,`ip`,`created_at`,`updated_at`) values (10,NULL,'global',NULL,'2016-12-28 13:04:51','2016-12-28 13:04:51');
+insert  into `throttle`(`id`,`user_id`,`type`,`ip`,`created_at`,`updated_at`) values (11,NULL,'ip','127.0.0.1','2016-12-28 13:04:51','2016-12-28 13:04:51');
 
 /*Table structure for table `users` */
 
@@ -221,6 +259,12 @@ CREATE TABLE `users` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `department_id` int(10) unsigned DEFAULT NULL,
+  `status` tinyint(3) unsigned NOT NULL,
+  `permissions` mediumtext COLLATE utf8_unicode_ci,
+  `last_login` timestamp NULL DEFAULT NULL,
+  `created_by` bigint(20) unsigned DEFAULT NULL,
+  `updated_by` bigint(20) unsigned DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -229,7 +273,7 @@ CREATE TABLE `users` (
 
 /*Data for the table `users` */
 
-insert  into `users`(`id`,`name`,`email`,`password`,`remember_token`,`created_at`,`updated_at`) values (1,'admin','admin','$2y$10$q0mEi9K7hCw3EhSmVDiubuRuDTKg9YHmcPX/IGMzA/oApinrPZLby',NULL,NULL,NULL);
+insert  into `users`(`id`,`name`,`email`,`password`,`remember_token`,`department_id`,`status`,`permissions`,`last_login`,`created_by`,`updated_by`,`created_at`,`updated_at`) values (1,'admin','admin','$2y$10$1NkGAcgzwMgRFNqeLn/Nvu9jfMzB8.QVOQJGMhIfIC1plj598LCDK',NULL,1,1,NULL,'2016-12-28 18:16:02',NULL,NULL,NULL,'2016-12-28 18:16:02');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

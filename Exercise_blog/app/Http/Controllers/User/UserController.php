@@ -25,12 +25,12 @@ use Session;
 
 class UserController extends Controller
 {
-//    public $kds;
-//
-//    public function __construct()
-//    {
-//        $this->middleware('auth');
-//    }
+    public $kds;
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Display a listing of the resource.
@@ -100,7 +100,7 @@ class UserController extends Controller
         $grid_data->addColumns(null, ['command' => $command, 'title' => "&nbsp;", 'width' => "250px"]);
 
         $data = ['grid_data' => $grid_data];
-        return view('user.list');
+        return view('user.list',$data);
     }
 
     public function read()

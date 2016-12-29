@@ -35,8 +35,17 @@
                     @endif
 
                     <li class="active"><a href="{{url('dashboard')}}"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+
                     <li>
-                        <a href="#"><i class="glyphicon glyphicon-cog"></i> <span>Security</span></a>
+                        <a href="#"><i class="glyphicon glyphicon-cog"></i> <span>Seeting</span></a>
+                        <ul>
+                            <li><a href="#">Division</a></li>
+                            <li><a href="#">District</a></li>
+                            <li><a href="#">Upzilla</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-hammer-wrench"></i> <span>Security</span></a>
                         <ul>
                             <li>
                                 <a href="{{url('usercreate')}}">user</a></li>

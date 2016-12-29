@@ -31,7 +31,7 @@
 
                 {!! Form::open(['url' => 'user', 'method' => 'post', 'id' => 'frm_user', 'files' => true]) !!}
 
-                {{--@include('user.form')--}}
+                @include('user.form')
 
                 {!! Form::close() !!}
 

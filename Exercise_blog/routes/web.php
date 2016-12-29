@@ -31,7 +31,6 @@ Route::group(['middleware' => 'web'], function () {
 
 });
 Route::get('dashboard', 'DahsboardController@index');
-
 Route::get('usercreate', 'User\UserController@index');
 Route::post('/usercreate/read', 'User\UserController@read');
 Route::get('user/create', 'User\UserController@create');

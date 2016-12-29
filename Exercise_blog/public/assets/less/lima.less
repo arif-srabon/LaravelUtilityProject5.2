@@ -1,0 +1,160 @@
+/**!
+ * Stylesheet for DSS Project (Common)
+ *
+ * Get the compiled files in ../css/
+ *
+ * locale: all
+ *
+ * @package LIMA_ILO
+ * @author 	Mayeenul Islam
+ * ...
+ */
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url("../fonts/OpenSans-Regular.eot?v=1.1.0");
+	src: url("../fonts/OpenSans-Regular.eot?#iefix&v=1.1.0") format("embedded-opentype"), url("../fonts/OpenSans-Regular.woff2?v=1.1.0") format("woff2"), url("../fonts/OpenSans-Regular.woff?v=1.1.0") format("woff"), url("../fonts/OpenSans-Regular.ttf?v=1.1.0") format("truetype"), url("../fonts/OpenSans-Regular.svg?v=1.1.0#Regular") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Open Sans Bold';
+	src: url("../fonts/OpenSans-Bold.eot?v=1.1.0");
+	src: url("../fonts/OpenSans-Bold.eot?#iefix&v=1.1.0") format("embedded-opentype"), url("../fonts/OpenSans-Bold.woff2?v=1.1.0") format("woff2"), url("../fonts/OpenSans-Bold.woff?v=1.1.0") format("woff"), url("../fonts/OpenSans-Bold.ttf?v=1.1.0") format("truetype"), url("../fonts/OpenSans-Bold.svg?v=1.1.0#Bold") format("svg");
+	font-weight: bold;
+	font-style: normal;
+}
+
+body{
+	font-family: 'Open Sans';
+}
+
+b,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+	font-family: 'Open Sans Bold';
+}
+
+.navbar-header{
+	min-width: auto;
+}
+
+.navbar-brand{
+	height: auto;
+	padding: 6px 20px;
+	position: relative;
+	
+	.navbar-logo{
+		display: inline-block;
+		height: auto;
+		max-height: 40px;
+		margin-top: 0;
+		float: left;
+	}
+}
+
+.navbar-branding{
+	display: inline-block;
+	float: left;
+	margin-left: 10px;
+}
+
+.brand-text{
+	display: block;
+	vertical-align: middle;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.brand-secondary-text{
+	display: inline-block;
+}
+
+.collapse-label{
+	cursor: pointer;
+}
+
+
+
+/** Beneficiary Input Separation **/
+.beneficiary-header-image{
+	margin-bottom: 10px;
+	display: none;
+
+	img{
+		max-width: 100%;
+		width: 100%;
+		height: auto;
+		border-radius: 4px;
+	}
+}
+
+
+/** Color Themes */
+#sidebar-theme-switcher{
+	.btn{
+		padding: 0;
+		margin: 0 3px;
+
+		&.active{
+			border: 1px solid rgba(255,255,255,0.7);
+		}
+	}
+
+	.color-holder{
+		margin-left: 20px;
+	}
+}
+
+.theme-ui-color-box{
+	display: block;
+	width: 15px;
+	height: 15px;
+	background-color: #425f64;
+	border: 1px solid #999;
+
+	&.color-green{
+		background-color: #223c34;
+	}
+
+	&.color-blue{
+		background-color: #446cb3;
+	}
+
+	&.color-violet{
+		background-color: #464056;
+	}
+
+	&.color-light-green{
+		background-color: #11a746;
+	}
+}
+
+
+#grouped-table{
+	.parents th > .icon-trash{
+		background-color: #a70909;
+    	border-color: #460303;
+	}
+
+	td{
+		background-color: #f3f3f3;
+	}
+}
+
+.attachments-row{
+	margin-bottom: 10px;
+}
+
+.button-col{
+	width: 170px;
+}
+
+.text-dim{
+	color: #999;
+}

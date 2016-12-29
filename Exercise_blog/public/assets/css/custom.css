@@ -1,0 +1,101 @@
+@charset "utf-8";
+/* CSS Document */
+.form-group {
+    margin-bottom: 10px;
+}
+
+legend {
+    margin-bottom: 10px;
+}
+
+#divAjaxLoading {
+    background: url("../images/ajax_loader.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #FF0000;
+    font-weight: bold;
+    height: 100px;
+    padding: 25px 0 0 110px;
+}
+
+label.error {
+    color: #FF0000;
+    display:inline-block;
+}
+
+.cropit-preview {
+    background-color: #f8f8f8;
+    background-size: cover;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    margin-top: 7px;
+    width: 200px;
+    height: 200px;
+}
+
+.cropit-preview-image-container {
+    cursor: move;
+}
+
+.image-size-label {
+    margin-top: 10px;
+}
+
+/* Start CSS For Report Information */
+.lima-common-report-table {
+    border: 1px solid #000000;
+}
+
+.lima-common-report-table > thead > tr > th,
+.lima-common-report-table > tbody > tr > th,
+.lima-common-report-table > tfoot > tr > th,
+.lima-common-report-table > thead > tr > td,
+.lima-common-report-table > tbody > tr > td,
+.lima-common-report-table > tfoot > tr > td {
+    border: 1px solid #000000 !important;
+    padding: 2px 2px;
+}
+
+/** Disabling printing href content on Print mode : Globally */
+@media print {
+    a[href]:after {
+        content: ""
+    }
+
+    #reports-table {
+        page-break-inside: auto
+        /*-webkit-region-break-inside: avoid;*/
+    }
+
+    .reportsDetails {
+        page-break-inside: avoid;
+        break-after: auto;
+        page-break-after: auto;
+        /*-webkit-region-break-inside: avoid;*/
+    }
+
+    .page-break {
+        break-after: always;
+        page-break-after: always;
+        /*-webkit-region-break-after: auto;*/
+    }
+
+    /*#reports-table tr.three{page-break-after:always}*/
+    tr.break-mandatory {
+        display: block;
+        page-break-before: always;
+        height: 0;
+    }
+}
+
+/* End CSS For Report Information */
+
+.open-on-hover{
+    opacity: 0;
+}
+
+.dashboard-inspection-pending-row:hover .open-on-hover{
+    opacity: 1;
+}
+
+.bg-info-dim{
+    background-color: #ccc;
+}

@@ -35,6 +35,47 @@
     <script type="text/javascript" src="assets/js/pages/dashboard.js"></script>
     <!-- /theme JS files -->
 
+    <!-- Global stylesheets -->
+    <link href="{{ asset('assets/css/icons/icomoon/styles.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/core.css')}}" rel="stylesheet" type="text/css">
+    <!-- <link href="{{ asset('assets/css/style.css')}}" rel="stylesheet" type="text/css"> -->
+    <link href="{{ asset('assets/css/components.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/colors.css')}}" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="{{ asset('assets/css/toastr.css') }}">
+
+    <!-- DSS Stylesheet - Language-independent -->
+    <link href="{{ asset('assets/css/lima.min.css')}}" rel="stylesheet" type="text/css">
+
+    <?php
+    /**
+     * Bangla stylesheet
+     * Stylesheet specific to Bengali stuffs only.
+     * ...
+     */
+    if( 'bn' === Session::get('locale') ) : ?>
+    <link href="{{ asset('assets/css/lima-bn.min.css')}}" rel="stylesheet" type="text/css">
+    <?php endif; ?>
+
+            <!-- DSS Color Theme Stylesheet -->
+    <?php
+    $theme = 'default';
+    if (Session::get('color')) {
+        $theme = Session::get('color');
+    }
+    ?>
+    <link href="<?php echo asset('assets/css/colors/' . $theme . '.css')?>" rel="stylesheet" type="text/css">
+
+    <!-- Core JS files -->
+    <script type="text/javascript" src="{{ asset('assets/js/core/libraries/jquery.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/core/libraries/bootstrap.min.js')}}"></script>
+    <!-- /core JS files -->
+
+
+    {!! Assets::css() !!}
+    <link href="{{ asset('assets/css/custom.css')}}" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>

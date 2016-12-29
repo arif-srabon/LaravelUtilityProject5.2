@@ -4,8 +4,6 @@
         <!-- User menu -->
         @include('layouts.user_sidebar')
         <!-- /user menu -->
-
-
         <!-- Main navigation -->
         <div class="sidebar-category sidebar-category-visible">
             <div class="category-content no-padding">
@@ -36,7 +34,7 @@
 
                     @endif
 
-                    <li class="active"><a href="index.html"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+                    <li class="active"><a href="{{url('dashboard')}}"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
                     <li>
                         <a href="#"><i class="glyphicon glyphicon-cog"></i> <span>Security</span></a>
                         <ul>
@@ -137,3 +135,14 @@
 
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $('#sidebar-language-switcher-en').on('click', function () {
+            window.location.replace('{{url("setlang/en")}}');
+        });
+        $('#sidebar-language-switcher-bn').on('click', function () {
+            window.location.replace('{{url("setlang/bn")}}');
+        });
+    });
+</script>

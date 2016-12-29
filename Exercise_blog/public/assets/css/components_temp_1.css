@@ -6872,7 +6872,6 @@ a.editable-empty:focus {
   left: 0;
   margin: 0;
   padding: 5px;
-  z-index: 1200 !important;
 }
 .datepicker table {
   margin: 0;
@@ -15772,9 +15771,9 @@ thead .htCollapseButton:after {
   padding: 7px 12px;
   outline: 0;
 }
-+ .dt-button {
-    margin-left: 10px;
-  }
+ + .dt-button {
+  margin-left: 10px;
+}
 .dt-button-info {
   position: fixed;
   top: 50%;

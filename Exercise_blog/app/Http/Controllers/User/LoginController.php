@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Session;
 class LoginController extends Controller
 {
     public function index(){
-
+        if (Sentinel::check()) {
+            return redirect('dashboard');
+        }
         return view('user.login');
     }
 

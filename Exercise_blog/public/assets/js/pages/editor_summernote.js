@@ -59,7 +59,7 @@ $(function() {
 
     // Styled file input
     $(".note-image-input").uniform({
-        wrapperClass: 'bg-blue',
+        wrapperClass: 'bg-teal-400',
         fileButtonHtml: '<i class="icon-googleplus5"></i>'
     });
 

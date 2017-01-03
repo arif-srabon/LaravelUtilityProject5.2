@@ -43,7 +43,7 @@ class KendoModel
     function __construct()
     {
         $host = env('DB_HOST', 'localhost');
-        $db_name = env('DB_DATABASE', 'laravel_exercise');
+        $db_name = env('DB_DATABASE', 'laravel_s');
 
         $dsn = "mysql:host={$host};dbname=$db_name;charset=utf8;";
         $username = env('DB_USERNAME', 'root');

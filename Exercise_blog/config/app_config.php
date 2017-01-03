@@ -5,14 +5,19 @@ return [
     /*
      * Grid properties
      */
+//    'num_paging_row' => 10,
+//    'grid_page_size' => [5, 10, 15, 20, 50],
+//    'grid_button_count' => 5,
+//    'grid_height' => 500,
+//    'window_size' => ['small' => 450, 'medium' => 780, 'large' => 950],
+//    'window_action_all' => ["Minimize", "Maximize", "Close"],
+//    'window_action_close' => ["Close"],
     'num_paging_row' => 10,
-    'grid_page_size' => [5, 10, 15, 20, 50],
+    'grid_page_sizes' => [5, 10, 15, 20,],
     'grid_button_count' => 5,
-    'grid_height' => 500,
-    'window_size' => ['small' => 450, 'medium' => 780, 'large' => 950],
-    'window_action_all' => ["Minimize", "Maximize", "Close"],
-    'window_action_close' => ["Close"],
-
+    'grid_height' => 0,
+    'grid_height_small' => 350,
+    'num_paging_row_custom' => 150,
     /*
      * DB active status
      */

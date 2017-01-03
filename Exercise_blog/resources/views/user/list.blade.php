@@ -3,7 +3,7 @@
 @section('menu_security', 'active')
 @section('menu_user', 'active')
 @section('page_header')
-    <i class="icon-key position-left"></i> <span class="text-semibold">User</span>
+    <i class="icon-key position-left"></i> <span class="text-semibold">User List</span>
 @endsection
 
 @section('breadcrumb_links')
@@ -17,12 +17,12 @@
                 <!--list -->
 
         <div id="grid_center"></div>
+
         <script type="application/javascript">
 
             $(document).ready(function () {
 
-                {{!!$grid_data!!}}
-
+                {{!! $grid_data !!}}
                 function commandEdit(e) {
                     e.preventDefault ? e.preventDefault() : e.returnValue = false;
                     var grid = $("#grid_center").data("kendoGrid");

@@ -14,7 +14,7 @@
 
                 <div class="col-md-3">
                     <div class="form-group">
-                        {!! Form::label('designation_id', 'Designation *') !!}
+                        {!! Form::label('designation_id', trans('users/user.lbl_designation')) !!}
                         {!! Form::select('designation_id', array(), null, ['placeholder' => 'Select Designation', 'class' => 'select form-control']) !!}
                         @if ($errors->has('designation_id'))<p
                                 class="text-danger">{!!$errors->first('designation_id')!!}</p>@endif
@@ -34,10 +34,10 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        {!! Form::label('idsc_center_id', 'IDSC Center *') !!}
-                        {!! Form::select('idsc_center_id', array(), null, ['placeholder' => 'Select IDSC Center', 'class' => 'select form-control']) !!}
-                        @if ($errors->has('idsc_center_id'))<p
-                                class="text-danger">{!!$errors->first('idsc_center_id')!!}</p>@endif
+                        {!! Form::label('department_id', trans('users/user.lbl_department')) !!}
+                        {!! Form::select('department_id', array(), null, ['placeholder' => 'Select Department', 'class' => 'select form-control']) !!}
+                        @if ($errors->has('department_id'))<p
+                                class="text-danger">{!!$errors->first('department_id')!!}</p>@endif
                     </div>
                 </div>
 
@@ -213,13 +213,13 @@
                 <label class="display-block text-semibold">Status</label>
                 <label class="radio-inline">
                     <div class="choice">
-                        {!! Form::radio('status', 1, true,  ['class' => 'styled']) !!}
+                        {!! Form::radio('status', 1, true,  ['class' => 'styledd']) !!}
                     </div>
                     Active
                 </label>
                 <label class="radio-inline">
                     <div class="choice">
-                        {!! Form::radio('status', 0, null,  ['class' => 'styled']) !!}
+                        {!! Form::radio('status', 0, null,  ['class' => 'styledd']) !!}
                     </div>
                     Inactive
                 </label>

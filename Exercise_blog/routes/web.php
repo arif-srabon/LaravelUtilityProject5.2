@@ -28,9 +28,13 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/', 'User\LoginController@index'); //login
     Route::post('/logincheck', 'User\LoginController@logincheck');
     Route::get('/logout', 'User\LoginController@logout');
-
+    Route::get('/division','Setup\DivisionController@index');
 });
+
+
+Route::post('/division/{type}','Setup\DivisionController@division_data');
 Route::get('dashboard', 'DahsboardController@index');
-Route::get('usercreate', 'User\UserController@index');
-Route::post('/usercreate/read', 'User\UserController@read');
+Route::get('user', 'User\UserController@index');
+Route::post('/user/read', 'User\UserController@read');
 Route::get('user/create', 'User\UserController@create');
+Route::post('user/store', 'User\UserController@store');

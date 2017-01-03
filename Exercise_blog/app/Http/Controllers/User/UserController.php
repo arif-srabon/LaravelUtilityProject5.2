@@ -4,25 +4,11 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 
-use App\Http\Libraries\SentinelAuthCheck as SentinelAuth;
-use App\Model\Setup\CommonConfigModel;
-use App\Model\Setup\DistrictModel;
-use App\Model\Setup\DivisionModel;
-use App\Model\Setup\ThanaUpazillaModel;
-use App\Model\Setup\UnionWardModel;
-use App\Model\User\RoleModel;
-use Cartalyst\Sentinel\Laravel\Facades\Activation;
-use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
-use DB;
 use mjanssen\BreadcrumbsBundle\Breadcrumbs;
 use narutimateum\Toastr\Facades\Toastr;
 use App\Fileentry;
 use Riesenia\Kendo\Kendo;
 use App\KendoModel as kds;
-use App\Model\User\UserModel as User;
-use App\Http\Requests\UserRequest;
-use Session;
-
 class UserController extends Controller
 {
     public $kds;
@@ -44,11 +30,11 @@ class UserController extends Controller
             'kendoui/kendo.all.min.js'
         ]);
         // breadcrumbs
-        Breadcrumbs::addBreadcrumb('Security', '/user');
+        Breadcrumbs::addBreadcrumb('Security', 'user');
         Breadcrumbs::addBreadcrumb("User ", '#');
 
         $transport_read_data = Kendo::createRead()
-            ->setUrl('/usercreate/read')
+            ->setUrl('/user/read')
             ->setContentType('application/json')
             ->setType('POST');
 
@@ -117,16 +103,40 @@ class UserController extends Controller
         return response(json_encode($data))
             ->header('Content-Type', 'application/json');
     }
-    public function create(){
+
+    public function create()
+    {
         \Assets::add(['plugins/forms/validation/validate.min.js',
             'plugins/forms/styling/uniform.min.js',
             'plugins/ui/moment/moment.min.js',
             'plugins/pickers/daterangepicker.js',
             'plugins/jquery.relatedselects.js',
             'plugins/forms/selects/select2.min.js',
-            'app/user_form_validation.js'
+            'app/user_form_validation.js',
+            'pages/form_checkboxes_radios.js'
         ]);
 
-        return view('user.create');
+        // breadcrumbs
+        Breadcrumbs::addBreadcrumb('Security', '/user');
+        Breadcrumbs::addBreadcrumb('User', '/user');
+        Breadcrumbs::addBreadcrumb('Add', '#');
+
+        $data = [];
+
+        return view('user.create')->with($data);
+    }
+    public function store(){
+        try{
+
+            Toastr::success(config('app_config.msg_save'), "Save", $options = []);
+
+            return redirect('user/create');
+        } catch (\Exception $e) {
+
+            Toastr::error(config('app_config.msg_failed_save'), "Save Failed", $options = []);
+
+            return redirect('user/create')
+                ->with('dangerMsg', $e->getMessage());
+        }
     }
 }

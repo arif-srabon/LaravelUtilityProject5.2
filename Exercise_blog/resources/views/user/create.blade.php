@@ -1,19 +1,19 @@
 @extends('layouts.master')
-@section('page_title', 'Dashboard')
-@section('menu_dashboard', 'active')
-
+@section('page_title', 'Add User Information')
+@section('menu_security', 'active')
+@section('menu_user', 'active')
 @section('page_header')
-        <i class="icon-meter2 position-left"></i> <span class="text-semibold">Dashboard</span>
+    <i class="icon-key position-left"></i> <span class="text-semibold">Add User</span>
 @endsection
 
 @section('breadcrumb_links')
 
-        <li><a href="{{url('user')}}"><i class="icon-users position-left"></i> User List</a></li>
-        @endsection
+    <li><a href="{{url('user')}}"><i class="glyphicon glyphicon-th"></i> user  list</a></li>
+    @endsection
 
-        @section('content')
 
-                <!-- User Form -->
+    @section('content')
+
         <div class="panel panel-flat">
             <div class="panel-heading">
                 <h5 class="panel-title">Add User Information</h5>
@@ -29,7 +29,7 @@
 
                 @include('errors.message')
 
-                {!! Form::open(['url' => 'user', 'method' => 'post', 'id' => 'frm_user', 'files' => true]) !!}
+                {!! Form::open(['url' => 'user/store', 'method' => 'post', 'id' => 'frm_user', 'files' => true]) !!}
 
                 @include('user.form')
 
@@ -37,7 +37,4 @@
 
             </div>
         </div>
-
-        <!-- /User form -->
-
 @endsection

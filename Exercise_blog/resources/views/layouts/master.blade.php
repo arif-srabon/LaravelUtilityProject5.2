@@ -48,7 +48,7 @@
 
     {!! Assets::css() !!}
     <link href="{{ asset('assets/css/custom.css')}}" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="{{asset('assets/js/core/app.js')}}"></script>
+
 
 </head>
 
@@ -115,7 +115,8 @@
 
 </div>
 <!-- /page container -->
-{{--<script type="text/javascript" src="{{ asset('assets/js/app/app.js')}}"></script>--}}
+<script type="text/javascript" src="{{ asset('assets/js/app/app.js')}}"></script>
+{{--<script type="text/javascript" src="{{asset('assets/js/core/app.js')}}"></script>--}}
 <script src="{{ asset('assets/js/plugins/toastr.min.js') }}"></script>
 {!! Assets::js() !!}
 {!! Toastr::render() !!}

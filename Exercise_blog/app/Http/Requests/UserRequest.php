@@ -23,21 +23,48 @@ class UserRequest extends Request
     {
         return [
             'email' => 'required|min:2|unique:users,email,' . $this->id,
-            'full_name' => 'required|min:5',
-//            'designation_id' => 'required',
+            //'password' => 'required|min:5|confirmed',
+            'designation_id' => 'required|integer',
+            //'password_confirmation' => 'required|min:5',
+            'full_name_bn' => 'required|min:5',
+            'full_name_en' => 'required|min:5',
+            'department_id' => 'required|integer',
+            //'date_of_birth' => 'date',
+            'father_name' => 'min:5',
+            'mother_name' => 'min:5',
+            'official_email' => 'email',
+            // 'date_of_joining' => 'date',
+            'permanent_house_road' => 'min:3',
+            'permanent_village' => 'min:3',
+            'permanent_division' => 'integer',
+            'permanent_district' => 'integer',
+            'permanent_upzilla' => 'integer',
+            'permanent_postcode' => 'min:3',
+            'present_house_road' => 'min:3',
+            'present_village' => 'min:3',
+            'present_division' => 'integer',
+            'present_district' => 'integer',
+            'present_upzilla' => 'integer',
+            'present_postcode' => 'min:3',
             'user_photo' => 'image|mimes:png,jpeg|image_size:<=600',
+            'user_sign' => 'image|mimes:png,jpeg|image_size:<=600',
             'mobile' => 'min:3',
-            'password'=>'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#])[A-Za-z\d$@$!%*?&#]{6,}[\S]$/|confirmed',
+            'passport' => 'min:3',
+            'national_id' => 'min:13',
+            'marital_status_id' => 'integer'
         ];
     }
 
     public function messages()
     {
         return [
-//            'email.unique' => "Duplicate User Name / Login ID.",
-            'email.unique' => "The User Name / Login ID has Already been Taken.",
-            'password.regex' => "Password should be combination of Uppercase, Lowercase, Numeric and special Character.",
-//            'official_email' => "Provide Valid Email Address."
+            'full_name_en.required' => 'Provide Valid User Full Name in English.',
+            'full_name_en.min' => 'The User Full Name in English must be at least 5 characters.',
+            'full_name_bn.required' => 'Provide Valid User Full Name in Bangla.',
+            'full_name_bn.min' => 'The User Full Name in Bangla must be at least 5 characters.',
+            'email.required' => 'Provide Valid and Unique User Name / Login ID.',
+            'email.min' => 'The User Name / Login ID must be at least 5 characters.',
+            'email.unique' => 'The User Name has already been Taken.'
         ];
     }
 }

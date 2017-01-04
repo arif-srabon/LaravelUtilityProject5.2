@@ -15,7 +15,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         {!! Form::label('designation_id', trans('users/user.lbl_designation')) !!}
-                        {!! Form::select('designation_id', array(), null, ['placeholder' => 'Select Designation', 'class' => 'select form-control']) !!}
+                        {!! Form::select('designation_id', $designation, null, ['placeholder' => 'Select Designation', 'class' => 'select form-control']) !!}
                         @if ($errors->has('designation_id'))<p
                                 class="text-danger">{!!$errors->first('designation_id')!!}</p>@endif
                     </div>
@@ -35,7 +35,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         {!! Form::label('department_id', trans('users/user.lbl_department')) !!}
-                        {!! Form::select('department_id', array(), null, ['placeholder' => 'Select Department', 'class' => 'select form-control']) !!}
+                        {!! Form::select('department_id', $deprtmntList, null, ['placeholder' => 'Select Department', 'class' => 'select form-control']) !!}
                         @if ($errors->has('department_id'))<p
                                 class="text-danger">{!!$errors->first('department_id')!!}</p>@endif
                     </div>
@@ -148,7 +148,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         {!! Form::label('marital_status_id', 'Marital Status') !!}
-                        {!! Form::select('marital_status_id', array(), null, ['placeholder' => 'Select', 'class' => 'select form-control']) !!}
+                        {!! Form::select('marital_status_id', $marital_status, null, ['placeholder' => 'Select', 'class' => 'select form-control']) !!}
                         @if ($errors->has('marital_status_id'))<p
                                 class="text-danger">{!!$errors->first('marital_status_id')!!}</p>@endif
                     </div>
@@ -213,13 +213,13 @@
                 <label class="display-block text-semibold">Status</label>
                 <label class="radio-inline">
                     <div class="choice">
-                        {!! Form::radio('status', 1, true,  ['class' => 'styledd']) !!}
+                        {!! Form::radio('status', 1, true,  ['class' => 'styled']) !!}
                     </div>
                     Active
                 </label>
                 <label class="radio-inline">
                     <div class="choice">
-                        {!! Form::radio('status', 0, null,  ['class' => 'styledd']) !!}
+                        {!! Form::radio('status', 0, null,  ['class' => 'styled']) !!}
                     </div>
                     Inactive
                 </label>
@@ -238,7 +238,7 @@
                             <?php    //dump($assignedRole); ?>
                             <div class="form-group">
                                 {!! Form::label('assigned_roles_list', 'Select User Role(s) *') !!}
-                                {!! Form::select('assigned_roles_list[]', array(), null, ['class' => 'select form-control', 'multiple', id => 'assigned_roles_list']) !!}
+                                {!! Form::select('assigned_roles_list[]', $allRoles, null, ['class' => 'select form-control', 'multiple', id => 'assigned_roles_list']) !!}
                             </div>
 
 
@@ -276,7 +276,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         {!! Form::label('permanent_division', 'Division') !!}
-                        {!! Form::select('permanent_division', array(), null, ['placeholder' => 'Select', 'class' => 'select form-control']) !!}
+                        {!! Form::select('permanent_division', $divisionList, null, ['placeholder' => 'Select', 'class' => 'select form-control']) !!}
                         @if ($errors->has('permanent_division'))<p
                                 class="text-danger">{!!$errors->first('permanent_division')!!}</p>@endif
                     </div>
@@ -348,7 +348,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         {!! Form::label('present_division', 'Division') !!}
-                        {!! Form::select('present_division', array(), null, ['placeholder' => 'Select', 'class' => 'select form-control']) !!}
+                        {!! Form::select('present_division', $divisionList, null, ['placeholder' => 'Select', 'class' => 'select form-control']) !!}
                         @if ($errors->has('present_division'))<p
                                 class="text-danger">{!!$errors->first('present_division')!!}</p>@endif
                     </div>

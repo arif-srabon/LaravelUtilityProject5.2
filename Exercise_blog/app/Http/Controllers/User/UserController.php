@@ -4,18 +4,31 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 
+use App\Model\Setup\DepartmentModel as Departmnt;
+use App\Model\Setup\DivisionModel as DivisionModel;
+use App\Model\Setup\CommponConfigModel as CcModel;
+use App\Model\User\RoleModel as RoleModel;
+use App\Model\User\UserModel as User;
+use App\Http\Requests\UserRequest;
 use mjanssen\BreadcrumbsBundle\Breadcrumbs;
 use narutimateum\Toastr\Facades\Toastr;
 use App\Fileentry;
 use Riesenia\Kendo\Kendo;
 use App\KendoModel as kds;
+use Session;
+use Cartalyst\Sentinel\Laravel\Facades\Activation;
+use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 class UserController extends Controller
 {
     public $kds;
-
+    public $lang;
     public function __construct()
     {
         $this->middleware('auth');
+        $this->lang = Session::get("locale");
+        if (!isset($this->lang)) {
+            $this->lang = config('app.locale');
+        }
     }
 
     /**
@@ -112,8 +125,7 @@ class UserController extends Controller
             'plugins/pickers/daterangepicker.js',
             'plugins/jquery.relatedselects.js',
             'plugins/forms/selects/select2.min.js',
-            'app/user_form_validation.js',
-            'pages/form_checkboxes_radios.js'
+            'app/user_form_validation.js'
         ]);
 
         // breadcrumbs
@@ -122,12 +134,27 @@ class UserController extends Controller
         Breadcrumbs::addBreadcrumb('Add', '#');
 
         $data = [];
-
+        $data = array_merge($data, $this->_getBasicData());
+        $data['assignedRole'] = [];
+//        $savedData = $this->_getSavedUserBasicData();
+//        dd($data);
+//        $data = array_merge($data, $savedData);
+        $roles = new RoleModel;
+        $data['allRoles'] = $roles->getAllList();
+//        dd($data['allRoles']);
         return view('user.create')->with($data);
     }
-    public function store(){
+    public function store(UserRequest $request){
         try{
+            $user = $this->_registerUser($request);
+            $userInfo = User::findOrFail($user->id);
+            $userInfo->created_by = Session::get('sess_user_id');
+            $userInfo->update($request->all());
 
+            $this->uploadPhoto($request, $user->id);
+            // save user roles
+            $userRoleIds = $request->input('assigned_roles_list');
+            $user->roles()->sync($userRoleIds);
             Toastr::success(config('app_config.msg_save'), "Save", $options = []);
 
             return redirect('user/create');
@@ -137,6 +164,73 @@ class UserController extends Controller
 
             return redirect('user/create')
                 ->with('dangerMsg', $e->getMessage());
+        }
+    }
+
+    public function _getBasicData(){
+        // get basic data
+        $deprtmnt = new Departmnt;
+        $data['deprtmntList'] = $deprtmnt->getAllDeprtmntList();
+        $division = new DivisionModel;
+        $data['divisionList'] = $division->getAllDivisionList($this->lang);
+        $cConfig = new CcModel;
+        $data['designation'] = $cConfig->getAllCommonConfigList('cc_designation',$this->lang);
+        $data['marital_status'] = $cConfig->getAllCommonConfigMaritalStatusList('cc_maritus_status',$this->lang);
+        return $data;
+
+    }
+    public function _getSavedUserBasicData(){
+
+    }
+
+    private function _registerUser($request)
+    {
+        $credentials = [
+            'email' => $request->input('email'),
+            'password' => $request->input('password'),
+        ];
+
+        // check user activation status
+        if ($request->input('status') == 1) {
+            $activation = true;
+        } else {
+            $activation = false;
+        }
+
+        if ($user = Sentinel::register($credentials, $activation)) {
+            return $user;
+        }
+        return false;
+    }
+
+
+    public function uploadPhoto($request, $id)
+    {
+        $file = $request->file('user_photo');
+        if (!empty($file)) {
+            $uploadPath = config('app_config.user_upload_photo_path') . "$id/";
+            $fileName = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path($uploadPath), $fileName);
+            $uploadFile = $uploadPath . $fileName;
+            // update path
+            $entry = User::find($id);
+            $entry->user_photo = $uploadFile;
+            $entry->save();
+        }
+    }
+
+    public function uploadSign($request, $id)
+    {
+        $file = $request->file('user_sign');
+        if (!empty($file)) {
+            $uploadPath = config('app_config.user_upload_sign_path') . "$id/";
+            $fileName = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path($uploadPath), $fileName);
+            $uploadFile = $uploadPath . $fileName;
+            // update path
+            $entry = User::find($id);
+            $entry->user_sign = $uploadFile;
+            $entry->save();
         }
     }
 }

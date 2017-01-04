@@ -130,18 +130,18 @@ public function read(){
                 $columns[] = 'created_at';
                 $request->created_at = date('Y-m-d H:i:s');
 
-                $v = Validator::make($request, [
-                    'geo_code' => 'required|max:6'
-                ]);
-
-                if ($v->fails())
-                {
-//                    $result =  $v->errors();
-                    $result='dddd';
-
-                }else{
+//                $v = Validator::make($request, [
+//                    'geo_code' => 'required|max:6'
+//                ]);
+//
+//                if ($v->fails())
+//                {
+////                    $result =  $v->errors();
+//                    $result='dddd';
+//
+//                }else{
                     $result = $this->kds->create('divisions', $columns, $request, 'id');
-                }
+//                }
 //                if (!empty($result['errors'][0])) {
 //                    dd($result['errors'][0]);
 //                    $result['errors'][0] = 'createFailed';

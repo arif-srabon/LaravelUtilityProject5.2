@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
-Route::post('/division/{type}','Setup\DivisionController@division_data');
+//Route::get('/user', function (Request $request) {
+//    return $request->user();
+//})->middleware('auth:api');
+//Route::post('/division/{type}','Setup\DivisionController@division_data');

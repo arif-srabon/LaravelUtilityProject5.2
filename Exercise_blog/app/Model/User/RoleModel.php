@@ -23,7 +23,6 @@ class RoleModel extends Model
         $value = Cache::remember('cache_roleList', config('app_config.cache_time_limit'), function() {
             return $this->orderBy('name', 'asc')->pluck('name', 'id');
         });
-
         return $value;
     }
 

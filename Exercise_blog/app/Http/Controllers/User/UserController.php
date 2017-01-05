@@ -147,14 +147,16 @@ class UserController extends Controller
     public function store(UserRequest $request){
         try{
             $user = $this->_registerUser($request);
-            $userInfo = User::findOrFail($user->id);
+            $userInfo = User::first($user->id);
             $userInfo->created_by = Session::get('sess_user_id');
             $userInfo->update($request->all());
-
+//            dd($userInfo);
             $this->uploadPhoto($request, $user->id);
             // save user roles
             $userRoleIds = $request->input('assigned_roles_list');
+            dd($userRoleIds);
             $user->roles()->sync($userRoleIds);
+//            dd($user);
             Toastr::success(config('app_config.msg_save'), "Save", $options = []);
 
             return redirect('user/create');
@@ -189,17 +191,18 @@ class UserController extends Controller
             'email' => $request->input('email'),
             'password' => $request->input('password'),
         ];
-
         // check user activation status
         if ($request->input('status') == 1) {
             $activation = true;
         } else {
             $activation = false;
         }
-
-        if ($user = Sentinel::register($credentials, $activation)) {
+//        $credentials= Sentinel::authenticate($credentials);
+//        dd($credentials);
+        if ($user = Sentinel::authenticate($credentials, $activation)) {
             return $user;
         }
+
         return false;
     }
 

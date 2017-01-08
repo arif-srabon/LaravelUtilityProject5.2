@@ -13,7 +13,7 @@ class CreateUpazillasTable extends Migration
      */
     public function up()
     {
-        Schema::create('thana_upazilla', function (Blueprint $table) {
+        Schema::create('thana_upazillas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('division_id')->unsigned();
             $table->bigInteger('district_id')->unsigned();
@@ -35,6 +35,6 @@ class CreateUpazillasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('thana_upazilla');
+        Schema::dropIfExists('thana_upazillas');
     }
 }

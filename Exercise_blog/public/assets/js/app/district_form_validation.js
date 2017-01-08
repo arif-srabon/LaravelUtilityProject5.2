@@ -57,9 +57,6 @@ $(function() {
             division_id: {
                 required: true,
             },
-            region_id: {
-                required: true,
-            },
 			geo_code: {
                 required: true,
                 minlength: 1
@@ -76,9 +73,6 @@ $(function() {
         messages: {
             division_id: {
                 required: "Select Division"
-            },
-            region_id: {
-                required: "Select Region"
             },
 			geo_code: {
                 required: "Provide valid GEO CODE",

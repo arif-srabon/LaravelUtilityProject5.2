@@ -150,11 +150,11 @@ class UserController extends Controller
             $userInfo = User::first($user->id);
             $userInfo->created_by = Session::get('sess_user_id');
             $userInfo->update($request->all());
-//            dd($userInfo);
             $this->uploadPhoto($request, $user->id);
+//            dd($userRoleIds);
             // save user roles
             $userRoleIds = $request->input('assigned_roles_list');
-            dd($userRoleIds);
+
             $user->roles()->sync($userRoleIds);
 //            dd($user);
             Toastr::success(config('app_config.msg_save'), "Save", $options = []);
@@ -218,6 +218,7 @@ class UserController extends Controller
             // update path
             $entry = User::find($id);
             $entry->user_photo = $uploadFile;
+            dd($entry);
             $entry->save();
         }
     }

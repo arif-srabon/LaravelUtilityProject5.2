@@ -36,15 +36,15 @@
 
                     <li class="@yield('menu_dashboard')"><a href="{{url('dashboard')}}"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
 
-                    <li class="@yield('menu_seeting')">
+                    <li class="@yield('menu_setup')">
                         <a href="#"><i class="glyphicon glyphicon-cog"></i> <span>Seeting</span></a>
                         <ul>
                             <li>
-                                <a href="#" class="@yield('menu_location')">Location</a>
+                                <a href="#" class="@yield('menu_setup_location')">Location</a>
                                 <ul>
-                                    <li><a href="{{url('division')}}" class="@yield('menu_division')">Division</a></li>
-                                    <li ><a href="#" class="@yield('menu_district')">District</a></li>
-                                    <li ><a href="#" class="@yield('menu_upzilla')">Upzilla</a></li>
+                                    <li><a href="{{url('division')}}" class="@yield('menu_setup_division')">Division</a></li>
+                                    <li ><a href="{{url('district')}}" class="@yield('menu_setup_district')">District</a></li>
+                                    <li ><a href="{{url('thanaupzilla')}}" class="@yield('menu_setup_thanaupazilla')">Thana/Upzilla</a></li>
                                 </ul>
                             </li>
                             <li><a href="#" class="@yield('')">Other</a></li>

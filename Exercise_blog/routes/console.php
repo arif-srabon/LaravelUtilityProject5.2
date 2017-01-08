@@ -14,3 +14,4 @@ use Illuminate\Foundation\Inspiring;
 */
 
 Route::post('/division/{type}','Setup\DivisionController@division_data');
+//Route::post('/district/read','Setup\DivisionController@read');

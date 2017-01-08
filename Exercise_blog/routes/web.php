@@ -29,10 +29,21 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('/logincheck', 'User\LoginController@logincheck');
     Route::get('/logout', 'User\LoginController@logout');
     Route::get('/division','Setup\DivisionController@index');
+//////////////////////
+    Route::resource('/district','Setup\DistrictController');
+    Route::resource('/thanaupzilla','Setup\ThanaUpzillaController');
 });
-
-
+//thana_upzilla
+Route::get('/thanaupazilla/create','Setup\ThanaUpzillaController@create');
+Route::get('/thanaupazilla/getDistrict/{DivisionID}','Setup\ThanaUpzillaController@getDistrict');
+//division
 Route::post('/division/{type}','Setup\DivisionController@division_data');
+//district
+Route::get('/district/create','Setup\DistrictController@create');
+Route::post('/district/read','Setup\DistrictController@read');
+Route::post('/district/destroy','Setup\DistrictController@destroy');
+
+//dashboard
 Route::get('dashboard', 'DahsboardController@index');
 Route::get('user', 'User\UserController@index');
 Route::post('/user/read', 'User\UserController@read');

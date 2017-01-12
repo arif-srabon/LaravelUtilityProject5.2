@@ -35,6 +35,7 @@ Route::group(['middleware' => 'web'], function () {
 });
 //thana_upzilla
 Route::get('/thanaupazilla/create','Setup\ThanaUpzillaController@create');
+Route::post('/thanaupazilla/read','Setup\ThanaUpzillaController@read');
 Route::get('/thanaupazilla/getDistrict/{DivisionID}','Setup\ThanaUpzillaController@getDistrict');
 //division
 Route::post('/division/{type}','Setup\DivisionController@division_data');

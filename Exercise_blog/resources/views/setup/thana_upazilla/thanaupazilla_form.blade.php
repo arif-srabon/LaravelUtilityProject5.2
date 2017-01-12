@@ -90,12 +90,10 @@
                     data: $form.serialize(),
                     success: function (data, status) {
                         if (data.toastr_error) {
-                            toastr[data.toastr_error](data.message, data.title);
+                            toastr['error'](data.message, data.title);
                             return;
                         }
-
-                        toastr[data.toastr_success](data.message, data.title);
-
+                        toastr['success'](data.message, data.title);
                         var grid = $("#grid_thana_upazilla").data("kendoGrid");
                         grid.dataSource.read();
                         grid.refresh();

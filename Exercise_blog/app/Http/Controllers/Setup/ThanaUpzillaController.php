@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Session;
 use mjanssen\BreadcrumbsBundle\Breadcrumbs;
 use Response;
 use App\Http\Requests\ThanaUpazillaRequest;
+use App\Http\Requests\UpzillaThanaRequst;
 
 use App\Model\Setup\DistrictModel as District;
 
@@ -131,40 +132,35 @@ class ThanaUpzillaController extends Controller
         return view('setup.thana_upazilla.thanaupazilla_list_form', $data);
     }
 
-//    public function read()
-//    {
-//        $request = json_decode(file_get_contents('php://input'));
-//
-//        $table = "thana_upazilas thanaUpazilla INNER JOIN divisions AS division ON thanaUpazilla.division_id = division.id
-//        INNER JOIN districts AS district ON thanaUpazilla.district_id = district.id
-//        LEFT JOIN regions AS region ON thanaUpazilla.region_id = region.id";
-//
-//        $div_name = 'division.name';
-//        $district = 'district.name';
-//        $region = 'region.name';
-//
-//        if($this->lang =='bn') {
-//            $div_name = 'division.name_' . $this->lang;
-//            $district = 'district.name_'. $this->lang;
-//            $region = 'region.name_bn';
-//        }
-//
-//        $properties = array("thanaUpazilla.id",
-//            'thanaUpazilla.geo_code',
-//            "thanaUpazilla.name AS name",
-//            "{$region} AS region",
-//            "thanaUpazilla.name_bn",
-//            "thanaUpazilla.type",
-//            "CONCAT($div_name, ' (', division.geo_code, ')') AS division_geoCode_Name",
-//            "CONCAT($district, ' (', district.geo_code, ')') AS district_geoCode_Name"
-//        );
-//
-//        $data = $this->kds->read($table, $properties, $request);
-//
-//        return response(json_encode($data))
-//            ->header('Content-Type', 'application/json');
-//
-//    }
+    public function read()
+    {
+        $request = json_decode(file_get_contents('php://input'));
+
+        $table = "thana_upazillas thanaUpazilla INNER JOIN divisions AS division ON thanaUpazilla.division_id = division.id
+        INNER JOIN districts AS district ON thanaUpazilla.district_id = district.id";
+
+        $div_name = 'division.name';
+        $district = 'district.name';
+        $region = 'region.name';
+
+        if($this->lang =='bn') {
+            $div_name = 'division.name_' . $this->lang;
+            $district = 'district.name_'. $this->lang;
+        }
+
+        $properties = array("thanaUpazilla.id,
+            thanaUpazilla.geo_code,
+            thanaUpazilla.name AS name,
+            thanaUpazilla.name_bn,
+            CONCAT($div_name, ' (', division.geo_code, ')') AS division_geoCode_Name,
+            CONCAT($district, ' (', district.geo_code, ')') AS district_geoCode_Name"
+        );
+
+        $data = $this->kds->read($table, $properties, $request);
+        return response(json_encode($data))
+            ->header('Content-Type', 'application/json');
+
+    }
 
     public function destroy()
     {
@@ -210,9 +206,8 @@ class ThanaUpzillaController extends Controller
 //    }
 
 
-    public function store(ThanaUpazillaRequest $request)
+    public function store(UpzillaThanaRequst $request)
     {
-        dd('dddddd');
         try {
             $inputs = $request->all();
             $inputs['created_by'] = Session::get('sess_user_id');
@@ -227,28 +222,22 @@ class ThanaUpzillaController extends Controller
 
     public function edit($id)
     {
+        dd($id);
         if ($this->lang == "en") {
-            $division = Division::lists('name', 'id');
+            $division = Division::pluck('name', 'id');
         } else {
-            $division = Division::lists('name_bn', 'id');
+            $division = Division::pluck('name_bn', 'id');
         }
         $thanaUpazillas = ThanaUpazilla::findOrFail($id);
 
         if ($this->lang == "en") {
             $district = District::where('division_id', '=', $thanaUpazillas['division_id'])
-                ->lists('name', 'id');
-            $name = 'name';
+                ->pluck('name', 'id');
         } else {
             $district = District::where('division_id', '=', $thanaUpazillas['division_id'])
                 ->lists('name_bn', 'id');
-            $name = 'name_bn';
         }
-
-        $region = RegionModel::lists($name, 'id');
-
-//        $region = RegionModel::where('division_id', '=', $thanaUpazillas->division_id)->lists($name, 'id');
-
-        return view('setup.thana_upazilla.thanaupazilla_edit_form', compact('thanaUpazillas', 'division', 'region', 'district'));
+        return view('setup.thana_upazilla.thanaupazilla_edit_form', compact('thanaUpazillas', 'division', 'district'));
     }
 
     public function update(ThanaUpazillaRequest $request, $id)

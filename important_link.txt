@@ -1,0 +1,267 @@
+//css short-cut 
+ http://docs.emmet.io/cheat-sheet/ 
+//Bootstrp alert
+http://v4-alpha.getbootstrap.com/components/alerts/
+
+//limit less Theme
+E:\Dss_Jpuf(All-Files)\LimitLess-Layout-1
+
+//Dynamic form Validation
+http://formvalidation.io/examples/adding-dynamic-field/
+http://jsfiddle.net/mjaric/tfflt/
+
+///for Chart::: http://c3js.org/ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+****************************************************************************************
+<div class="form-group">
+<label>Select with search</label>
+
+
+<div class="row" style="border: 1px solid #CCCCCC; padding: 10px; margin:1px;">
+
+        <div class="col-md-12">
+            <div class="form-group">
+                {!! Form::label('guideline_title_lable', trans('trans/guiding_resources.label_guideline_title')) !!}
+                {!! Form::text('guideline_title',null, ['class' => 'form-control']) !!}
+                @if ($errors->has('guideline_title'))
+                    <p class="text-danger">{!!$errors->first('guideline_title')!!}</p>
+                @endif
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="form-group">
+                {!! Form::label('attachment_description', trans('trans/guiding_resources.label_attachment_description')) !!}
+                {!! Form::textarea('attachment_description', null, ['class' => 'form-control','rows'=>'2']) !!}
+                @if ($errors->has('attachment_description'))
+                    <p class="text-danger">{!!$errors->first('attachment_description')!!}</p>
+                @endif
+            </div>
+        </div>
+
+
+        &nbsp;
+        <div class="col-md-12">
+            <label class="text-capitalize text-size-large"><i class="icon-file-text2 position-left"></i> {{ trans('trans/guiding_resources.guideline_attachment') }}</label>
+
+            <table class="table guideline-attachment-table">
+                <tbody>
+                    <tr id="attachment-repeater" class="attachment-type-holder sequenceNumber">
+                        <td>
+                            <div class="offer-preference-holder btn-group" data-toggle="buttons">
+                                <label class="btn btn-primary btn-sm active">
+                                    <input type="radio" name="attachment_choice" value="file" checked="checked"> {!! trans('trans/guiding_resources.attachment_type_file') !!}
+                                </label>
+                                <label class="btn btn-primary btn-sm">
+                                    <input type="radio" name="attachment_choice" value="link"> {!! trans('trans/guiding_resources.attachment_type_link') !!}
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            {!! Form::text('attachment_title[]',null, ['class' => 'form-control attachment-title', 'placeholder' => trans('trans/guiding_resources.label_attachment_title')]) !!}
+                            @if ($errors->has('attachment_title'))
+                                <p class="text-danger">{!!$errors->first('attachment_title')!!}</p>
+                            @endif
+                        </td>
+                        <td>
+                            <div class="file-div">
+                                {!! Form::file('uploaded_document[]', ['class' => '']) !!}
+                            </div>
+                            <div class="link-div">
+                                {!! Form::text('attachment_link[]',null, ['class' => 'form-control','placeholder'=>' Attachment link']) !!}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="btn btn-sm btn-danger remove-attachment-row"><i class="fa fa-minus"></i></div>
+                            <div class="btn btn-sm btn-primary add-attachment-row"><i class="fa fa-plus"></i></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="color: #0a68b4;" class="text-normal"> {{ trans('trans/guiding_resources.label_photo_type') }}
+                (jpg, jpeg, png) || {{ trans('trans/guiding_resources.label_video_type') }} (mp4, webm, flv, wmv, avi, mpg, mpeg, Ogg, mkv) || {{ trans('trans/guiding_resources.label_file_type') }}(pdf, doc, docx, xls, xlsx, txt) </p>
+
+            <?php if (isset($file_list)) { ?>
+            <div class="row">
+                <div class="col-md-12">
+                    <legend class="text-bold" style="color: #0a68b4;"><i
+                                class="icon-attachment position-left"></i> {{ trans('trans/guiding_resources.file_attachment') }}
+                    </legend>
+
+                    <?php
+                    if (count($file_list) != 0) {
+                        $i = 1;
+                        echo '<div class="table-responsive"><table class="table table-striped table-bordered table-condensed" data-show-columns="true" data-height="299" style="background: #0b56ff;">
+                  <th class="label-info text-center text-bold"> # </th>
+                  <th class="label-info text-center text-bold">' . trans("trans/guiding_resources.table_th_attachment_title") . '</th>
+                  <th class="label-info text-center text-bold">' . trans("trans/guiding_resources.table_th_attachment_uploaded") . '</th>
+
+                  <th class="label-info text-center text-bold" >' . trans("trans/guiding_resources.btn_uploaded_delete") . '</th>';
+                        $file_type = array("pdf", "doc", "docx", "xls", "xlsx", "txt");
+                        $video_type = array("mp4","webm","flv","wmv","avi","mpg","mpeg","Ogg","mkv");
+                        $photo_type = array("jpg", "jpeg", "png");
+
+                        foreach ($file_list as $key=>$item) {
+
+                           if($item->file_path){
+                                   if (in_array($item->file_type, $file_type)) {
+                                       $path=$site_url.'/'.$item->file_path;
+                                       $a='<a href="' . $path . '" target="_blank" class=" icon-file-download2" download>&nbsp;' . trans("trans/guiding_resources.table_td_docu_file") . '</a>';
+                                   }else if(in_array($item->file_type, $video_type)){
+                                       $path=$site_url.'/'.$item->file_path;
+                                       $a='<a href="' . $path . '" target="_blank" class=" icon-file-download2" download> ' . trans("trans/guiding_resources.table_td_video_file") . '</a>';
+                                   }else if(in_array($item->file_type, $photo_type)){
+                                       $a='<i class="icon-images2">'.'<a class="" data-popup="lightbox" href="'.' /'. $item->file_path . '">&nbsp;' . trans("trans/guiding_resources.table_td_photo_file") . '</a>' .'</i>';
+                                   }else{
+                                       $a="File Not Found";
+                                   }
+                           }else{
+                               $a =  '<a href="' . $item->attachment_link . '" target="_blank"><strong><i class="icon-drag-right"></i>&nbsp;' . trans("trans/guiding_resources.table_td_attachment_link") . '</strong></a>' .'</a>';
+                           }
+
+
+                            echo '
+                    <tr class="info" id="remove'.$key.'">
+                        <td class="col-md-1 text-center">' . $i++ . '</td>
+                        <td class="col-md-5 text-center" style="padding:2px 3px 2px 2px;">
+                         '.$item->attachment_title.'
+                        </td>
+
+                        <td class="col-md-4 text-center" style="padding:2px 3px 2px 2px;">
+                        '.$a.'
+                        </td>
+
+                         <td class="col-md-2 text-center" style="padding:3px 5px 3px 3px;">
+                         ' .'<a href="javascript:void(0)"> '.'&nbsp;&nbsp;'.'<button type="button" class="btn btn-danger"  onclick="myFunction('.$item->id.','.$guidingResourceValue->id.','.$key.')" style="padding:1px 3px;">' .trans('trans/guiding_resources.btn_uploaded_delete') .'<i class=""></i></button>'.'</a>'. '
+                         </td>
+                    </tr> ';
+                        }
+                        echo '</table></div>';
+                    } else {
+                        echo '<h2><p class="text-bold">' . trans("trans/guiding_resources.file_not_found") . '</p></h2>';
+                    }
+
+                    ?>
+                </div>
+            </div>
+            <?php } ?>
+
+        </div>
+
+        <div class="col-md-12">
+            <div class="form-group">
+                {!! Form::label('remarks',trans('trans/guiding_resources.label_remarks')) !!}
+                {!! Form::textarea('remarks', null, ['class' => 'form-control', 'placeholder' => '', 'rows'=>'1']) !!}
+                @if ($errors->has('remarks'))<p
+                        class="text-danger">{!!$errors->first('remarks')!!}</p>@endif
+            </div>
+        </div>
+
+    </div>
+    <div class="text-right">
+                {!! Form::hidden('id') !!}
+        <button id="reset" class="btn btn-default" type="reset">{{ trans('trans/guiding_resources.btn_reset_form')}} <i
+                    class="icon-reload-alt position-right"></i>
+        </button>
+        <button class="btn btn-primary" type="submit" id="btnSave">{{trans('trans/guiding_resources.btn_save_form')}} <i
+                    class="icon-arrow-right14 position-right"></i></button>
+
+    </div>
+
+
+
+<script type="application/javascript">
+
+    $(document).ready(function () {
+        $('#attachment-repeater').dynamicForm( '.add-attachment-row', '.remove-attachment-row', {limit: 20});
+
+//        $("form").submit(function(e){
+//            var required_fields = $('[name="attachment_title[]"]');
+//            if()
+//            e.preventDefault();
+//        });
+    });
+
+    //attachment js start
+    $('.link-div').hide();
+
+    $('input[type="radio"][name="attachment_choice"]').on('change', function(){
+        var this_item = $(this);
+            file_div = this_item.closest('.attachment-type-holder').find('.file-div');
+            link_div = this_item.closest('.attachment-type-holder').find('.link-div');
+
+        if( this_item.val() === 'file' ) {
+            file_div.slideToggle();
+            link_div.slideUp();
+            link_div.find('.form-control').val(''); //reset the other elem value
+        } else if( this_item.val() === 'link' ) {
+            link_div.slideToggle();
+            file_div.slideUp();
+            file_div.find('input[type="file"]').val(''); //reset the other elem value
+        } else {
+            link_div.slideUp();
+            file_div.slideUp();
+        }
+    });
+//end attachment js
+
+//    $(document).ready(function () {
+//        $('#btnSave').click( function(){
+//
+//            var n = $( ".sequenceNumber" ).length;
+//            if(n>10) {
+//                $( ".attachment-title" ).addClass( "required" );
+//            }
+//      });
+//    });
+
+    function myFunction($attachmentID,$masterID,$key) {
+        if (confirm("{!!config('app_config.msg_delete_confirmation')!!}")){
+            var attachmentID=$attachmentID;
+            var masterID=$masterID;
+            var removeID='remove'+$key;
+            var data = 'attachmentID=' + attachmentID + '&masterID=' + masterID;
+            $.ajax({
+                dataType: 'json',
+                type: "POST",
+                url: '/guidingresources/deleteuploadedfile',
+                data: data,
+                cache: false,
+                success: function (response) {
+                    document.getElementById(removeID).remove();
+                },
+                error: function (x, e) {
+
+                }
+            });
+
+        }
+    }
+</script>

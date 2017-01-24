@@ -35,6 +35,7 @@ return [
     'speech_pediatric_upload_path' => 'uploads/speech_pediatric/',
     'speech_adult_upload_path' => 'uploads/speech_adult/',
     'hearing_aided_upload_path' => 'uploads/hearing_aided/',
+    'import_file_path' => 'uploads/importFile/',
 
     /*
      * cache parameter
@@ -66,6 +67,17 @@ return [
     'msg_delete_relation' => "Delete Not Allowed",
     'msg_used' => "This Data Already Used in Other Scope",
     'msg_duplicate' => "This Data Already Exists",
+
+    /*
+    * Common Message
+    */
+    'msg_upload'                    => "Data has been Uploaded Successfully",
+    'msg_verification_confirmation' => "Are you sure you want to verify?",
+    'msg_transfer_confirmation'     => "Are you sure you want to transfer the selected record?",
+    'msg_transfer'                  => "Applicant Transfered Successfully",
+    'msg_transfer_failed'           => "Applicant Transfered Failed",
+    'msg_complaint_confirmation'    => "Are you sure want to Submit the Complaint?",
+    'msg_application_confirmation'  => "Are you sure you want to submit this application?",
 
     /*
      * For Occupational Therapy --here the number is the code of cc_speech_pediatric_type table

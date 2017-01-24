@@ -71,7 +71,7 @@
                 $("#grid_thana_upazilla").on("click", ".k-grid-edit", function () {
                     var grid = $("#grid_thana_upazilla").data("kendoGrid");
                     var dataItem = grid.dataItem(this.closest("tr"));
-                    var url = '/thanaupazilla/' + dataItem.id + '/edit/';
+                    var url = '/thanaupzilla/edit/'+ dataItem.id ;
                     var myModal = $('#myModal');
                     var modalBody = myModal.find('.modal-content');
                     modalBody.load(url);

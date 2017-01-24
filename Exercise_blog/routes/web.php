@@ -35,7 +35,9 @@ Route::group(['middleware' => 'web'], function () {
 });
 //thana_upzilla
 Route::get('/thanaupazilla/create','Setup\ThanaUpzillaController@create');
+Route::get('/thanaupzilla/edit/{id}','Setup\ThanaUpzillaController@edit');
 Route::post('/thanaupazilla/read','Setup\ThanaUpzillaController@read');
+Route::post('/thanaupazilla/update{id}','Setup\ThanaUpzillaController@update');
 Route::get('/thanaupazilla/getDistrict/{DivisionID}','Setup\ThanaUpzillaController@getDistrict');
 //division
 Route::post('/division/{type}','Setup\DivisionController@division_data');
@@ -50,3 +52,9 @@ Route::get('user', 'User\UserController@index');
 Route::post('/user/read', 'User\UserController@read');
 Route::get('user/create', 'User\UserController@create');
 Route::post('user/store', 'User\UserController@store');
+
+// route for import
+Route::get('importfile','Import\ImportController@index');
+Route::post('importfile/store','Import\ImportController@store');
+//
+Route::get('angularjs','AngularjsController@index');

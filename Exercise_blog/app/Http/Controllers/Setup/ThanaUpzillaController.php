@@ -222,7 +222,6 @@ class ThanaUpzillaController extends Controller
 
     public function edit($id)
     {
-        dd($id);
         if ($this->lang == "en") {
             $division = Division::pluck('name', 'id');
         } else {
@@ -237,13 +236,14 @@ class ThanaUpzillaController extends Controller
             $district = District::where('division_id', '=', $thanaUpazillas['division_id'])
                 ->lists('name_bn', 'id');
         }
+
         return view('setup.thana_upazilla.thanaupazilla_edit_form', compact('thanaUpazillas', 'division', 'district'));
     }
 
     public function update(ThanaUpazillaRequest $request, $id)
     {
         try {
-
+dd('upddddd');
             $thanaupazilla = ThanaUpazilla::findOrFail($id);
             $request['updated_by'] = Session::get('sess_user_id');
             $thanaupazilla->update($request->all());

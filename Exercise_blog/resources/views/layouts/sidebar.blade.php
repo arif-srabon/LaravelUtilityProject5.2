@@ -98,8 +98,17 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a href=""><i class="icon-list-unordered"></i> <span>Changelog <span class="label bg-blue-400">1.2.1</span></span></a></li>
-                    <li><a href=""><i class="icon-width"></i> <span>RTL version</span></a></li>
+                    <li><a href="{{url('angularjs')}}"><i class="icon-list-unordered"></i> <span>Angular Js <span class="label bg-blue-400">V(1.4.8)</span></span></a></li>
+                    {{--<li><a href=""><i class="icon-width"></i> <span>RTL version</span></a></li>--}}
+                    {{--import file--}}
+{{--                    @if (SentinelAuth::check('settings.importfile.view'))--}}
+                        <li class="@yield('menu_import')">
+                            <a href="{{url('importfile')}}"><i class="icon-width"></i>
+                                <span>{{trans('sidebar.import_file')}}</span>
+                            </a>
+                        </li>
+                        {{--@endif--}}
+                        {{--end import--}}
 
                     <!-- /main -->
 

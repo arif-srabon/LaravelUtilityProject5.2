@@ -1,0 +1,15 @@
+/**
+ * Theme
+ * Incorporating Color Themes over default CSS
+ *
+ * @project ikms-ilo
+ * @author  Mayeenul Islam
+ */
+// PROJECT MODULES
+// Pre-Position
+@import 'variables';
+
+$base-color: $theme-light-green;
+$secondary-color: #333;
+
+@import '_themes';

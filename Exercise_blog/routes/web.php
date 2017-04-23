@@ -25,7 +25,8 @@ Route::get('dashboard/{locale}', function ($locale) {
 });
 
 Route::group(['middleware' => 'web'], function () {
-    Route::get('/', 'User\LoginController@index'); //login
+    Route::get('/', 'HomeController@index');
+    Route::get('/login', 'User\LoginController@index'); //login
     Route::post('/logincheck', 'User\LoginController@logincheck');
     Route::get('/logout', 'User\LoginController@logout');
     Route::get('/division','Setup\DivisionController@index');

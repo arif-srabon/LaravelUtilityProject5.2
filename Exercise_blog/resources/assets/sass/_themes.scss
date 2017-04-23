@@ -1,0 +1,140 @@
+/**
+ * Theme
+ * Incorporating Color Themes over default CSS
+ *
+ * @project ikms-ilo
+ * @author  Mayeenul Islam
+ */
+
+.sidebar{
+	background-color: darken($base-color, 9%);
+}
+.navbar-inverse{
+	background-color: darken( $base-color, 10% );
+}
+.navigation{
+	& > li.active{
+		& > a,
+		& > a:active,
+		& > a:focus{
+			background-color: darken( $base-color, 10% );
+		}
+	}
+}
+.page-title{
+	padding: 10px 36px 10px 0;
+
+	h4{
+		font-size: 25px;
+
+		.text-semibold{
+			font-weight: bold;
+		}
+	}
+	[class^="icon-"]{
+		border: 1px solid #333;
+		color: #333;
+		border-radius: 50%;
+		padding: 10px;
+		width: 45px;
+		height: 45px;
+		text-align: center;
+
+		&:before{
+			vertical-align: middle;
+		}
+	}
+}
+@media (min-width: 769px){
+	.sidebar-xs{
+		.sidebar-main{
+			.navigation-main{
+				& > li{
+					& > a{
+						& > span{
+							background-color: darken( $base-color, 10% );
+							border-color: darken( $base-color, 10% );
+						}
+					}
+					& > ul{
+						background-color: darken( $base-color, 20% );
+					}
+				}
+			}
+		}
+	}
+}
+.bg-info{
+	background-color: $base-color;
+	border-color: darken( $base-color, 10% );
+}
+.btn-primary,
+.btn-info{
+	background-color: $base-color;
+	border-color: darken( $base-color, 10% );
+
+	&.focus,
+	&:focus,
+	&:hover{
+		background-color: darken( $base-color, 3% );
+		border-color: darken( $base-color, 7% );
+	}
+	&:active,
+	&:active,
+	&.active,
+	&.active,
+	.open > .dropdown-toggle.btn-info{
+		background-color: darken( $base-color, 5% );
+		border-color: darken( $base-color, 9% );
+	}
+	&:active:hover,
+	&:active:hover,
+	&.active:hover,
+	&.active:hover,
+	.open > .dropdown-toggle.btn-info:hover,
+	.open > .dropdown-toggle.btn-primary:hover,
+	&:active:focus,
+	&:active:focus,
+	&.active:focus,
+	&.active:focus,
+	.open > .dropdown-toggle.btn-info:focus,
+	&:active.focus,
+	&:active.focus,
+	&.active.focus,
+	&.active.focus,
+	.open > .dropdown-toggle.btn-info.focus,
+	.open > .dropdown-toggle.btn-primary.focus{
+		background-color: darken( $base-color, 3% );
+		border-color: darken( $base-color, 7% );
+	}
+}
+
+.bg-teal-400{
+	background-color: $base-color;
+	border-color: $base-color;
+}
+.bg-teal-800{
+	background-color: darken( $base-color, 20% );
+	border-color: darken( $base-color, 20% );
+}
+
+
+#grouped-table{
+	.parents th{
+		background-color: darken($base-color, 10%);
+	}
+
+	tr{
+		th{
+			background-color: $base-color;
+			color: #fff;
+			border-color: darken($base-color, 10%);
+		}
+	}
+}
+
+.panel-theme > .panel-heading {
+	color: #fff;
+    background-color: $base-color;
+    border-color: darken($base-color, 5%);
+}

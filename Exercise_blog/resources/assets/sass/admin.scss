@@ -1,0 +1,814 @@
+/**!
+ * Stylesheet to override Admin Panel design (Common)
+ *
+ * Get the compiled files in ../css/
+ *
+ * locale: all
+ *
+ * @package IKMS_ILO
+ * @author 	Mayeenul Islam
+ * ...
+ */
+@import "variables";
+
+// Core variables and mixins
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../fonts/SourceSansPro-Regular.eot');
+    src: url('../fonts/SourceSansPro-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/SourceSansPro-Regular.woff') format('woff'),
+         url('../fonts/SourceSansPro-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../fonts/SourceSansPro-Bold.eot');
+    src: url('../fonts/SourceSansPro-Bold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/SourceSansPro-Bold.woff') format('woff'),
+         url('../fonts/SourceSansPro-Bold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+body{
+	font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+
+.table-print{
+	width: 100%;
+
+	&.table-width-auto{
+		width: auto;
+	}
+}
+
+.table-print > thead > tr > th,
+.table-print > thead > tr > td,
+.table-print > tbody > tr > td,
+.table-print > tbody > tr > th{
+	padding: 8px;
+	line-height: 1.42857143;
+	vertical-align: top;
+}
+
+.text-dim{
+	color: #666;
+}
+
+.navbar-header{
+	min-width: auto;
+}
+
+.navbar-brand{
+	height: auto;
+	padding: 6px 20px;
+	position: relative;
+	
+	.navbar-logo{
+		display: inline-block;
+		height: auto;
+		max-height: 40px;
+		margin-top: 0;
+		float: left;
+	}
+}
+
+.navbar-branding{
+	display: inline-block;
+	float: left;
+	margin-left: 10px;
+}
+
+.brand-text{
+	display: block;
+	vertical-align: middle;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.brand-secondary-text{
+	display: inline-block;
+}
+
+.collapse-label{
+	cursor: pointer;
+}
+
+
+/** Beneficiary Input Separation **/
+.beneficiary-header-image{
+	margin-bottom: 10px;
+	display: none;
+
+	img{
+		max-width: 100%;
+		width: 100%;
+		height: auto;
+		border-radius: 4px;
+	}
+}
+
+
+/** Color Themes */
+#sidebar-theme-switcher{
+	.btn{
+		padding: 0;
+		margin: 0 3px;
+
+		&.active{
+			border: 1px solid rgba(255,255,255,0.7);
+		}
+	}
+
+	.color-holder{
+		margin-left: 20px;
+	}
+}
+
+.theme-ui-color-box{
+	display: block;
+	width: 15px;
+	height: 15px;
+	background-color: #425f64;
+	border: 1px solid #999;
+
+	&.color-green{
+		background-color: #223c34;
+	}
+
+	&.color-blue{
+		background-color: #446cb3;
+	}
+
+	&.color-violet{
+		background-color: #464056;
+	}
+
+	&.color-light-green{
+		background-color: #11a746;
+	}
+}
+
+
+// -------- matching with front end
+
+.index-column{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.index-number{
+	//background is from theme
+	color: #fff;
+	text-align: center;
+	padding: 5px 10px;
+	vertical-align: middle;
+	border-radius: 100px;
+	display: inline-block;
+	margin-bottom: 10px;
+	min-width: 45.56px;
+}
+
+.dhara{
+	color: #ccc;
+	font-size: 80%;
+}
+
+.panel-heading h3{
+	margin: 0;
+	font-size: 18px;
+}
+
+
+.panel-flat .chart{
+	color: #333;
+}
+
+.colorful-panels{
+	color: #fff;
+
+	& > .panel-heading{
+		background-color: transparent;
+	}
+
+	.content-group{
+		color: #e1e1e1;
+	}
+
+	text {
+	    fill: #e1e1e1; // lighter than white
+	}
+
+	.btn-link{
+		color: #fff;
+	}
+}
+
+#dashboard-statistic-panel{
+	$gradient-color: #3d476b;
+
+	@include gradient-directional(
+						$start-color: $gradient-color,
+						$end-color: lighten($gradient-color, 10%),
+						$deg: 45deg
+					);
+
+	#chart-choice{
+		background-color: transparent;
+		border: 0;
+
+		&:focus{
+			border: 0;
+			outline: 0;
+		}
+
+		option{
+			background-color: $gradient-color;
+			direction: rtl;
+		}
+	}
+}
+
+#panel-business-type{
+	$gradient-color: #3949ab;
+
+	@include gradient-directional(
+						$start-color: $gradient-color,
+						$end-color: lighten($gradient-color, 10%),
+						$deg: 30deg
+					);
+
+	.c3-chart-bars path{
+		stroke-width: 1;
+		stroke: #100c35 !important;
+	}
+}
+
+#panel-status{
+	$gradient-color: #666666;
+
+	@include gradient-directional(
+						$start-color: $gradient-color,
+						$end-color: darken($gradient-color, 12%),
+						$deg: 30deg
+					);
+
+	.c3-chart-arc path{
+		stroke: #aaa;
+	}
+}
+
+
+/** Taken from AdminLTE Open Source Admin Template */
+
+/*
+ * Component: Small Box
+ * --------------------
+ */
+.small-box {
+	border-radius: 2px;
+	position: relative;
+	display: block;
+	margin-bottom: 20px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.small-box > .inner {
+  	padding: 10px;
+}
+.small-box > .small-box-footer {
+	position: relative;
+	text-align: center;
+	padding: 3px 0;
+	color: #fff;
+	color: rgba(255, 255, 255, 0.8);
+	display: block;
+	z-index: 10;
+	background: rgba(0, 0, 0, 0.1);
+	text-decoration: none;
+}
+.small-box > .small-box-footer:hover {
+	color: #fff;
+	background: rgba(0, 0, 0, 0.15);
+}
+.small-box > .small-box-footer i{
+	font-size: 12px;
+}
+.small-box h3 {
+	font-size: 38px;
+	font-weight: bold;
+	margin: 0 0 10px 0;
+	white-space: nowrap;
+	padding: 0;
+}
+.small-box p {
+	font-size: 15px;
+}
+.small-box p > small {
+	display: block;
+	color: #f9f9f9;
+	font-size: 13px;
+	margin-top: 5px;
+}
+.small-box h3,
+.small-box p {
+	z-index: 5;
+}
+.small-box .icon {
+	-webkit-transition: all 0.3s linear;
+	-o-transition: all 0.3s linear;
+	transition: all 0.3s linear;
+	position: absolute;
+	top: -10px;
+	right: 10px;
+	z-index: 0;
+	font-size: 70px;
+	color: rgba(0, 0, 0, 0.15);
+}
+.small-box .icon i{
+	font-size: 70px;
+}
+.small-box:hover {
+	text-decoration: none;
+	color: #f9f9f9;
+}
+.small-box:hover .icon {
+    -webkit-transform: scale(1.2); /* Safari */
+		-ms-transform: scale(1.2); /* IE 9 */
+    		transform: scale(1.2);
+}
+@media (max-width: 767px) {
+	.small-box {
+		text-align: center;
+	}
+	.small-box .icon {
+		display: none;
+	}
+	.small-box p {
+		font-size: 12px;
+	}
+}
+
+#issue-license{
+	label{
+		font-weight: bold;
+	}
+}
+
+.conditional-hide-first{
+	display: none;
+}
+
+/** Overriding Limitless CSS */
+
+.bootstrap-switch.bootstrap-switch-disabled .bootstrap-switch-handle-on,
+.bootstrap-switch.bootstrap-switch-readonly .bootstrap-switch-handle-on,
+.bootstrap-switch.bootstrap-switch-indeterminate .bootstrap-switch-handle-on,
+.bootstrap-switch.bootstrap-switch-disabled .bootstrap-switch-handle-off,
+.bootstrap-switch.bootstrap-switch-readonly .bootstrap-switch-handle-off,
+.bootstrap-switch.bootstrap-switch-indeterminate .bootstrap-switch-handle-off,
+.bootstrap-switch.bootstrap-switch-disabled .bootstrap-switch-label,
+.bootstrap-switch.bootstrap-switch-readonly .bootstrap-switch-label,
+.bootstrap-switch.bootstrap-switch-indeterminate .bootstrap-switch-label{
+	opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+
+.bootstrap-switch.bootstrap-switch-disabled .bootstrap-switch-label:after{
+	border: 0;
+}
+
+
+// ----------------------
+// Apply/Registration
+// ----------------------
+
+.conditional-to-factory{
+	display: none;
+}
+
+.repeater-card{
+	display: block;
+	margin-bottom: 20px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.has-error .btn-file{
+	border-color: $btn-danger-border;
+}
+
+.section-head{
+	color: $dark-blue-color;
+	margin-top: 20px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #ccc;
+
+	a:not(.btn){
+		color: $dark-blue-color;
+	}
+
+	a.collapsed{
+		display: block;
+	}
+
+	a:focus,
+	a:hover{
+		text-decoration: none;
+		outline: 0;
+	}
+}
+
+.panel-theme{
+	.panel-title a{
+		color: #fff;
+	}
+}
+
+.panel-title a{
+	&:hover,
+	&:focus,
+	&:active{
+		text-decoration: none;
+	}
+}
+
+.panel.inner-panel-for-accordion{
+	background-color: transparent;
+	box-shadow: 0 0 0 transparent;
+	border-width: 0;
+	border-radius: none;
+}
+
+.panel.inner-panel-for-accordion.has-error{
+	.section-head{
+		border-bottom-color: $red-color;
+
+		&,
+		& a{
+			color: $red-color;
+		}
+	}
+}
+
+.panel.panel-repeater{
+	margin-bottom: 20px;
+}
+
+.repeater-group-head{
+	border-bottom: 2px solid #ccc;
+	padding-bottom: 10px;
+}
+
+.utility-row{
+	background-color: #ededed;
+	padding: 3px;
+	border-radius: 4px;
+}
+
+
+.disclaimer{
+	padding: 8px;
+	display: block;
+}
+
+.section-head-border{
+	display: inline-block;
+	max-width: 100px;
+	width: 12%;
+	height: 2px;
+	background-color: $red-color;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: 0;
+
+	&.section-head-border-center{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		background-color: $dark-blue-color;
+	}
+}
+
+#form-nav{
+	border-top: 1px solid #e1e1e1;
+	border-bottom: 1px solid #e1e1e1;
+	padding: 5px 0;
+}
+
+
+// ----------------------
+// OVERRIDING select2
+// ----------------------
+
+body.license-application{
+	.select2-container .select2-selection--single{
+		height: 34px;
+	}
+
+	.select2-container--default .select2-selection--single .select2-selection__rendered{
+		line-height: 32px;
+	}
+
+	.select2-container .select2-selection--single .select2-selection__rendered{
+		padding-left: 12px;
+	}
+
+	.select2-container--default .select2-selection--single .select2-selection__arrow{
+		height: 32px;
+	}
+
+	.has-error .select2-selection--single{
+		border-color: #a94442;
+	    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075)
+	}
+}
+
+
+
+/** Kamrul - Profile Page - Styles taken from Endless */
+
+.tab-bar.grey-tab {
+  background: #e6e6e6;
+}
+
+.tab-bar {
+	list-style: none;
+	margin: 0;
+  padding: 0;
+
+  & > li {
+	display: inline-block;
+	//float: left;
+	margin-bottom:3px;
+
+  }
+
+  &.grey-tab li.active a {
+	background-color: #3c565b;
+	border-color: #344b4e;
+	color: #fff;
+  }
+
+}
+
+.tab-bar.grey-tab li a{
+  color: #ccc;
+  width:95px;
+
+  i{
+	white-space: normal;
+  }
+
+  span{
+	white-space:pre-wrap;
+	display: block;
+  }
+}
+
+
+
+/*.tab-bar.grey-tab li a {
+  color: #bbb;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border: transparent;
+  text-shadow: 0 1px 0 #fff;
+}
+.tab-bar > li a {
+  display: block;
+  padding: 10px;
+  color: #ccc;
+  text-shadow: 0 1px #fff;
+  transition: color .2s ease;
+  -webkit-transition: color .2s ease;
+  -moz-transition: color .2s ease;
+  -ms-transition: color .2s ease;
+  -o-transition: color .2s ease;
+}*/
+
+.icomoon-2x {
+  font-size: 2em;
+}
+
+/** Dashboard New CSS for IKMS_ILO */
+
+.dash-widget-panel-holder{
+
+	.panel-body{
+		height: 100%;
+	}
+	
+	a{
+		display: block;
+		height: 100%;
+		color: #333;
+		padding: 10px;
+
+		&:hover{
+			color: #1980bd;
+			background-color: #ededed;
+			border-radius: 4px;
+		}
+	}
+
+	.block-text{
+		font-size: 14px;
+	}
+}
+
+@media (max-width: 370px) {
+	.dash-widget-panel-holder{
+		clear: both;
+		width: 100%;
+	}
+}
+
+.dash-widget-icon-lg{
+	font-size: 60px;
+	margin-bottom: 20px;
+}
+
+/** Application View Mode */
+
+.section-head{
+	color: $dark-blue-color;
+	margin-top: 20px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #ccc;
+
+	a{
+		display: block;
+	}
+
+	a:focus,
+	a:hover{
+		text-decoration: none;
+		outline: 0;
+	}
+}
+
+//arif
+
+// ----------------------
+// Front End List Table UI copied from Dashboard
+// Used for Expert Database List Table.
+// ----------------------
+
+.application-title{
+	font-size: 18px;
+	margin-top: 0;
+}
+
+.application-state-block{
+	.application-title{
+		margin-top: 0;
+		font-weight: bold;
+
+		small{
+			font-size: 10px;
+			vertical-align: middle;
+			display: inline-block;
+			padding: 9px 7px;
+		}
+	}
+
+	ul{
+		margin-bottom: 0;
+		padding-left: 20px;
+
+		li{
+			margin-bottom: 10px;
+
+			&:last-of-type{
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+.application-cards{
+	border-bottom: 1px solid #e1e1e1;
+	margin-bottom: 15px;
+
+	&:last-of-type{
+		border-bottom-width: 0;
+		margin-bottom: 0;
+	}
+}
+
+.application-utility{
+	li i{
+		margin-right: 10px;
+	}
+}
+
+.dash-panel-application-info,
+.dash-panel-tools,
+.dash-panel-user-info{
+	border: 1px solid #e1e1e1;
+
+	.panel-heading{
+		border-bottom: 1px solid #e1e1e1;
+	}
+}
+
+.dash-application-label{
+	font-weight: 600;
+	margin-bottom: 5px;
+}
+
+.btn-dash-tool{
+	text-align: center;
+	white-space: pre-line;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+
+	[class*="icon-"]{
+		font-size: 30px;
+		margin-bottom: 5px;
+	}
+}
+
+.btn-application-tool-group{
+
+	.btn-application-tool{
+		background-color: transparent;
+
+		&.active,
+		&:active{
+			box-shadow: 0 0 0 transparent;
+		}
+	}
+
+	&.open .dropdown-toggle{
+		box-shadow: 0 0 0 transparent;
+	}
+}
+
+.dash-username{
+	margin-top: 0;
+}
+
+//end arif
+
+
+// ------------- > HELPER CLASSES (ADDITIONAL TO LIMITLESS)
+
+.mt-25{
+	margin-top: 25px;
+}
+
+.mt-30{
+	margin-top: 30px;
+}
+
+.mb-25{
+	margin-bottom: 25px;
+}
+
+.mb-30{
+	margin-bottom: 30px;
+}
+
+.ml-25{
+	margin-left: 25px;
+}
+
+.ml-30{
+	margin-left: 30px;
+}
+
+.pl-25{
+	padding-left: 25px;
+}
+
+.pl-30{
+	padding-left: 30px;
+}
